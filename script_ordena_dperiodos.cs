@@ -26,3 +26,14 @@ foreach (var column in tb.Columns)
 {
     column.SummarizeBy = AggregateFunction.None;  // Desabilitar agregação
 }
+
+// Definir o formato para as colunas do tipo Data
+var dateColumns = new[] { "Data" };  // Colunas que contêm datas
+foreach (var columnName in dateColumns)
+{
+    var column = tb.Columns[columnName];
+    if (column != null)
+    {
+        column.FormatString = "Short Date";  // Aplica o formato de data curta
+    }
+}

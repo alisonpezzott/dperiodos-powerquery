@@ -20,3 +20,9 @@ foreach (var pair in columnPairs)
         textColumn.SortByColumn = sortColumn;  // Ordena a coluna de texto pela coluna numérica
     }
 }
+
+// Desabilitar agregações para todas as colunas da tabela
+foreach (var column in tb.Columns)
+{
+    column.SummarizeBy = AggregateFunction.None;  // Desabilitar agregação
+}

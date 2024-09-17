@@ -42,37 +42,46 @@ let
             { "Últimas 9 semanas",     17, "Semana",          3, Table.SelectRows ( dCalendario, each [SemanaOffset] >=  -8 and [SemanaOffset] <= 0 )[Data]       },
             { "Últimas 12 semanas",    18, "Semana",          3, Table.SelectRows ( dCalendario, each [SemanaOffset] >= -11 and [SemanaOffset] <= 0 )[Data]       },
 
+        //Quinzena
+            { "Esta Quinzena",         19, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] =    0 )[Data]                               },
+            { "Quinzena passada",      20, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] =   -1 )[Data]                               },
+            { "Quinzena retrasada",    21, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] =   -2 )[Data]                               },
+            { "Últimas 3 Quinzenas",   22, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] >=  -2 and [QuinzenaOffset] <= 0 )[Data]     },
+            { "Últimas 6 Quinzenas",   23, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] >=  -5 and [QuinzenaOffset] <= 0 )[Data]     },
+            { "Últimas 9 Quinzenas",   24, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] >=  -8 and [QuinzenaOffset] <= 0 )[Data]     },
+            { "Últimas 12 Quinzenas",  25, "Quinzena",       5, Table.SelectRows ( dCalendario, each [QuinzenaOffset] >= -11 and [QuinzenaOffset] <= 0 )[Data]     },
+
         //Mês
-            { "Este mês",              19, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =    0 )[Data]                                  },
-            { "Mês passado",           20, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =   -1 )[Data]                                  },
-            { "Mês retrasado",         21, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =   -2 )[Data]                                  },
-            { "Últimos 3 meses",       22, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -2 and [MesOffset] <= 0 )[Data]             },
-            { "Últimos 6 meses",       23, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -5 and [MesOffset] <= 0 )[Data]             },
-            { "Últimos 9 meses",       24, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -8 and [MesOffset] <= 0 )[Data]             },
-            { "Últimos 12 meses",      25, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >= -11 and [MesOffset] <= 0 )[Data]             },
+            { "Este mês",              26, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =    0 )[Data]                                  },
+            { "Mês passado",           27, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =   -1 )[Data]                                  },
+            { "Mês retrasado",         28, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] =   -2 )[Data]                                  },
+            { "Últimos 3 meses",       29, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -2 and [MesOffset] <= 0 )[Data]             },
+            { "Últimos 6 meses",       30, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -5 and [MesOffset] <= 0 )[Data]             },
+            { "Últimos 9 meses",       31, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >=  -8 and [MesOffset] <= 0 )[Data]             },
+            { "Últimos 12 meses",      32, "Mês",             4, Table.SelectRows ( dCalendario, each [MesOffset] >= -11 and [MesOffset] <= 0 )[Data]             },
 
         //Trimestre
-            { "Este trimestre",        26, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =    0 )[Data]                            },
-            { "Trimestre passado",     27, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =   -1 )[Data]                            },
-            { "Trimestre retrasado",   28, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =   -2 )[Data]                            },
-            { "Últimos 3 trimestres",  29, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -2 and [TrimestreOffset] <= 0 )[Data] },
-            { "Últimos 6 trimestres",  30, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -5 and [TrimestreOffset] <= 0 )[Data] },
-            { "Últimos 9 trimestres",  31, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -8 and [TrimestreOffset] <= 0 )[Data] },
-            { "Últimos 12 trimestres", 32, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >= -11 and [TrimestreOffset] <= 0 )[Data] },
+            { "Este trimestre",        33, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =    0 )[Data]                            },
+            { "Trimestre passado",     34, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =   -1 )[Data]                            },
+            { "Trimestre retrasado",   35, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] =   -2 )[Data]                            },
+            { "Últimos 3 trimestres",  36, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -2 and [TrimestreOffset] <= 0 )[Data] },
+            { "Últimos 6 trimestres",  37, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -5 and [TrimestreOffset] <= 0 )[Data] },
+            { "Últimos 9 trimestres",  38, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -8 and [TrimestreOffset] <= 0 )[Data] },
+            { "Últimos 12 trimestres", 39, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >= -11 and [TrimestreOffset] <= 0 )[Data] }
             
         //Ano    
-            { "Este ano",              33, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =    0 )[Data]                                  },
-            { "Ano passado",           34, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =   -1 )[Data]                                  },
-            { "Ano retrasado",         35, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =   -2 )[Data]                                  },
-            { "Últimos 2 anos",        36, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -2 and [AnoOffset] <= 0 )[Data]             },
-            { "Últimos 3 anos",        37, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -5 and [AnoOffset] <= 0 )[Data]             },
-            { "Últimos 4 anos",        38, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -8 and [AnoOffset] <= 0 )[Data]             },
-            { "Últimos 5 anos",        39, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >= -11 and [AnoOffset] <= 0 )[Data]             },
+            { "Este ano",              40, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =    0 )[Data]                                  },
+            { "Ano passado",           41, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =   -1 )[Data]                                  },
+            { "Ano retrasado",         42, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =   -2 )[Data]                                  },
+            { "Últimos 2 anos",        43, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -2 and [AnoOffset] <= 0 )[Data]             },
+            { "Últimos 3 anos",        44, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -5 and [AnoOffset] <= 0 )[Data]             },
+            { "Últimos 4 anos",        45, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >=  -8 and [AnoOffset] <= 0 )[Data]             },
+            { "Últimos 5 anos",        46, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] >= -11 and [AnoOffset] <= 0 )[Data]             },
 
         //Até             
-            { "Até hoje",              40, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= 0 )[Data]                                   },
-            { "Até ontem",             41, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= -1 )[Data]                                  },
-            { "Até anteontem",         42, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= -2 )[Data]                                  }
+            { "Até hoje",              47, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= 0 )[Data]                                   },
+            { "Até ontem",             48, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= -1 )[Data]                                  },
+            { "Até anteontem",         49, "Até",             7, Table.SelectRows ( dCalendario, each [DataOffset] <= -2 )[Data]                                  }
         }
     ),
 

@@ -1,3 +1,7 @@
+// Este script realiza as seguintes operações:
+// Faz a ordenação das colunas de texto pelas colunas numéricas
+// Aplica o formato short date para colunas do tipo data
+
 // Acesse a tabela dPeriodos
 var tb = Model.Tables["dPeriodos"];  
 

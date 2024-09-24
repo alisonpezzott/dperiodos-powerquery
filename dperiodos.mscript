@@ -67,7 +67,7 @@ let
             { "Últimos 3 trimestres",  36, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -2 and [TrimestreOffset] <= 0 )[Data] },
             { "Últimos 6 trimestres",  37, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -5 and [TrimestreOffset] <= 0 )[Data] },
             { "Últimos 9 trimestres",  38, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >=  -8 and [TrimestreOffset] <= 0 )[Data] },
-            { "Últimos 12 trimestres", 39, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >= -11 and [TrimestreOffset] <= 0 )[Data] }
+            { "Últimos 12 trimestres", 39, "Trimestre",       5, Table.SelectRows ( dCalendario, each [TrimestreOffset] >= -11 and [TrimestreOffset] <= 0 )[Data] },
             
         //Ano    
             { "Este ano",              40, "Ano",             6, Table.SelectRows ( dCalendario, each [AnoOffset] =    0 )[Data]                                  },

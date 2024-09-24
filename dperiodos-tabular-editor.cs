@@ -1,9 +1,11 @@
 // Este script realiza as seguintes operações:
-// Faz a ordenação das colunas de texto pelas colunas numéricas
-// Aplica o formato short date para colunas do tipo data
+// 1. Faz a ordenação das colunas de texto pelas colunas numéricas
+// 2. Aplica o formato short date para colunas do tipo data
+// 3. Remove agregações das colunas numéricas
+// 4. Efetua o relacionamento entre dPeriodos e dCalendario
 
 // Acesse a tabela dPeriodos
-var tb = Model.Tables["dPeriodos"];  
+var dperiodos = Model.Tables["dPeriodos"];  
 
 // Cria um mapeamento das colunas de texto e suas respectivas colunas numéricas para ordenação
 var columnPairs = new Dictionary<string, string>
@@ -15,8 +17,8 @@ var columnPairs = new Dictionary<string, string>
 // Aplica a ordenação para cada coluna de texto
 foreach (var pair in columnPairs)
 {
-    var textColumn = tb.Columns[pair.Key];  // Coluna de texto
-    var sortColumn = tb.Columns[pair.Value];  // Coluna numérica correspondente
+    var textColumn = dperiodos.Columns[pair.Key];  // Coluna de texto
+    var sortColumn = dperiodos.Columns[pair.Value];  // Coluna numérica correspondente
 
     // Verifica se ambas as colunas existem e aplica a ordenação
     if (textColumn != null && sortColumn != null)
@@ -26,7 +28,7 @@ foreach (var pair in columnPairs)
 }
 
 // Desabilitar agregações para todas as colunas da tabela
-foreach (var column in tb.Columns)
+foreach (var column in dperiodos.Columns)
 {
     column.SummarizeBy = AggregateFunction.None;  // Desabilitar agregação
 }
@@ -35,28 +37,24 @@ foreach (var column in tb.Columns)
 var dateColumns = new[] { "Data" };  // Colunas que contêm datas
 foreach (var columnName in dateColumns)
 {
-    var column = tb.Columns[columnName];
+    var column = dperiodos.Columns[columnName];
     if (column != null)
     {
         column.FormatString = "Short Date";  // Aplica o formato de data curta
     }
 }
 
-// Referência às tabelas no modelo
-var fromTb = Model.Tables["dCalendario"];
-var toTb = tb;
-
 // Definição das colunas envolvidas no relacionamento
-var fromCol = fromTb.Columns["Data"];
-var toCol = toTb.Columns["Data"];
+var daColuna = Model.Tables["dCalendario"].Columns["Data"];
+var paraColuna = dperiodos.Columns["Data"];
 
 // Verificar se o relacionamento já existe
-if (!Model.Relationships.Any(r => r.FromColumn == fromCol && r.ToColumn == toCol))
+if (!Model.Relationships.Any(r => r.FromColumn == daColuna && r.ToColumn == paraColuna))
 {
     // Criar um novo relacionamento
     var rel = Model.AddRelationship();
-        rel.FromColumn = fromCol;  // Coluna de origem
-        rel.ToColumn = toCol;      // Coluna de destino
+        rel.FromColumn = daColuna;  // Coluna de origem
+        rel.ToColumn = paraColuna;      // Coluna de destino
 
     // Definir comportamento de filtro cruzado unidirecional
     rel.CrossFilteringBehavior = CrossFilteringBehavior.OneDirection;

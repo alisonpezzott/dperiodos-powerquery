@@ -3,7 +3,7 @@
 ## Download PBIX pronto
 [dcalendario-v6.0.pbix](https://github.com/alisonpezzott/dcalendario-powerquery/releases/tag/v6.0) 
 
-Esta versão já inclui a tabela de [dCalendario](https://github.com/alisonpezzott/dcalendario-powerquery) e a dPeriodos 
+Esta versão já inclui a tabela de [dCalendario](https://github.com/alisonpezzott/dcalendario-powerquery)
 
 ## Usando o código no Power Query + Script Tabular Editor
 1. Efetue os passos a seguir somente após já ter concluído o processo da [dCalendario](https://github.com/alisonpezzott/dcalendario-powerquery);

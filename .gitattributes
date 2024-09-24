@@ -1,2 +1,2 @@
 *.m linguist-detectable=false
-*.m linguist-language=powershell
+*.pq linguist-language=powerquerym

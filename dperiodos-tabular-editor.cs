@@ -41,3 +41,30 @@ foreach (var columnName in dateColumns)
         column.FormatString = "Short Date";  // Aplica o formato de data curta
     }
 }
+
+// Referência às tabelas no modelo
+var fromTb = Model.Tables["dCalendario"];
+var toTb = tb;
+
+// Definição das colunas envolvidas no relacionamento
+var fromCol = fromTb.Columns["Data"];
+var toCol = toTb.Columns["Data"];
+
+// Verificar se o relacionamento já existe
+if (!Model.Relationships.Any(r => r.FromColumn == fromCol && r.ToColumn == toCol))
+{
+    // Criar um novo relacionamento
+    var rel = Model.AddRelationship();
+        rel.FromColumn = fromCol;  // Coluna de origem
+        rel.ToColumn = toCol;      // Coluna de destino
+
+    // Definir comportamento de filtro cruzado unidirecional
+    rel.CrossFilteringBehavior = CrossFilteringBehavior.OneDirection;
+    
+    // Definir cardinalidade muitos para muitos
+    rel.FromCardinality = RelationshipEndCardinality.Many;
+    rel.ToCardinality = RelationshipEndCardinality.Many;
+    
+    // Ativar o relacionamento
+    rel.IsActive = true;
+}
